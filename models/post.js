@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
-const chatSchema = new mongoose.Schema({
+const postSchema = new mongoose.Schema({
     body: String,
-    tags: String,
+    tags: Array,
 });
 
-const Posts = mongoose.model('Post', PostSchema);
+const Posts = mongoose.model('Post', postSchema);
 
 module.exports = Posts;
