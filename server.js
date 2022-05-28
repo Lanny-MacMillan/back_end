@@ -4,6 +4,7 @@ const cors = require('cors');
 const posts = require('./models/post.js')
 require('dotenv').config()
 
+
 const db = mongoose.connection;
 const MONGODB_URI  = process.env.MONGODB_URI 
 const app = express();
@@ -12,6 +13,29 @@ const app = express();
 app.listen(3000, ()=>{
     console.log('listening, what do you have?');
 });
+
+//___________________
+//Port
+//___________________
+// Allow use of Heroku's port or your own local port, depending on the environment
+const PORT = process.env.PORT || 3003;
+
+//___________________
+//Database
+//___________________
+// How to connect to the database either via heroku or locally
+const MONGODB_URI = process.env.MONGODB_URI;
+
+// Connect to Mongo &
+// Fix Depreciation Warnings from Mongoose
+// May or may not need these depending on your Mongoose version
+// mongoose.connect(MONGODB_URI , { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }
+// );
+mongoose.connect(MONGODB_URI, () => {
+  console.log('connected to mongo')
+});
+
+
 
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
