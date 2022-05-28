@@ -6,7 +6,6 @@ require('dotenv').config()
 
 
 const db = mongoose.connection;
-const MONGODB_URI  = process.env.MONGODB_URI 
 const app = express();
 
 //listeners
