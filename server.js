@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const posts = require('./models/post.js')
+const Posts = require('./models/post.js')
 require('dotenv').config()
 
 
@@ -55,7 +55,7 @@ app.use(cors());
 //routes
 
 app.post('/posts', (req, res)=>{
-  posts.create(req.body, (err, createdPosts
+  Posts.create(req.body, (err, createdPosts
     )=>{
       res.json(createdPosts
         ); //.json() will send proper headers in response so client knows it's json coming back
@@ -63,13 +63,13 @@ app.post('/posts', (req, res)=>{
 });
 
 app.get('/posts', (req, res)=>{
-  posts.find({}, (err, foundPosts)=>{
+  Posts.find({}, (err, foundPosts)=>{
       res.json(foundPosts);
   });
 });
 
 app.delete('/posts/:id', (req, res)=>{
-  posts.findByIdAndRemove(req.params.id, (err, deletedPosts
+  Posts.findByIdAndRemove(req.params.id, (err, deletedPosts
     )=>{
       res.json(deletedPosts
         );
@@ -77,7 +77,7 @@ app.delete('/posts/:id', (req, res)=>{
 });
 
 app.put('/posts/:id', (req, res)=>{
-  posts.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedPosts
+  Posts.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedPosts
     )=>{
       res.json(updatedPosts
         );
