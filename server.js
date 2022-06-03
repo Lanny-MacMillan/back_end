@@ -53,6 +53,10 @@ app.use(express.json()); //use .json(), not .urlencoded()
 app.use(cors());
 
 //routes
+//redirect for heroku route
+app.get('/', (req, res) => {
+  res.redirect('/posts')
+})
 
 app.post('/posts', (req, res)=>{
   Posts.create(req.body, (err, createdPosts
