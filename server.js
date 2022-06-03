@@ -49,7 +49,7 @@ mongoose.connection.once('open', ()=>{
 //middleware
 app.use(express.json()); //use .json(), not .urlencoded()
 app.use(cors());
-app.use(methodOverride('_method'));
+
 
 //routes
 //========================= REDIRECT ========================================
