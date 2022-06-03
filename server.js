@@ -9,7 +9,7 @@ const db = mongoose.connection;
 const app = express();
 
 //listeners
-app.listen(3003, ()=>{
+app.listen(3000, ()=>{
     console.log('listening, what do you have?');
 });
 
@@ -17,7 +17,7 @@ app.listen(3003, ()=>{
 //Port
 //___________________
 // Allow use of Heroku's port or your own local port, depending on the environment
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3003;
 
 //___________________
 //Database
@@ -41,7 +41,9 @@ db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
-
+//mongoose
+// mongoose.connect(MONGODB_URI, () => {
+// })
 mongoose.connection.once('open', ()=>{
     console.log('connected to mongod!');
 });
@@ -49,7 +51,6 @@ mongoose.connection.once('open', ()=>{
 //middleware
 app.use(express.json()); //use .json(), not .urlencoded()
 app.use(cors());
-
 
 //routes
 //========================= REDIRECT ========================================
