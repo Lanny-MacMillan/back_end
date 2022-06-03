@@ -57,10 +57,10 @@ app.use(cors());
 //routes
 //========================= REDIRECT ========================================
 
-//redirect for heroku route
-// app.get('/', (req, res) => {
-//   res.redirect('/posts')
-// })
+// redirect for heroku route
+app.get('/', (req, res) => {
+  res.redirect('/posts')
+})
 
 //=========================== CREATE ========================================
 
