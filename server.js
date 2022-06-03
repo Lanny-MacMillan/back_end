@@ -9,7 +9,7 @@ const db = mongoose.connection;
 const app = express();
 
 //listeners
-app.listen(3000, ()=>{
+app.listen(3003, ()=>{
     console.log('listening, what do you have?');
 });
 
@@ -49,6 +49,7 @@ mongoose.connection.once('open', ()=>{
 //middleware
 app.use(express.json()); //use .json(), not .urlencoded()
 app.use(cors());
+app.use(methodOverride('_method'));
 
 //routes
 //========================= REDIRECT ========================================
