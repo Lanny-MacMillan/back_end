@@ -8,16 +8,18 @@ require('dotenv').config()
 const db = mongoose.connection;
 const app = express();
 
-//listeners
-app.listen(3000, ()=>{
-    console.log('listening, what do you have?');
-});
-
 //___________________
 //Port
 //___________________
 // Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT || 3003;
+
+//listeners
+app.listen(PORT, ()=>{
+    console.log('listening, what do you have?');
+});
+
+
 
 //___________________
 //Database
