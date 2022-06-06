@@ -13,8 +13,8 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     // origin: "http://localhost:3002",
-    // origin: "https://stark-crag-15310-backend.herokuapp.com/",
-    origin: "https://mighty-tor-36415-frontend.herokuapp.com/",
+    origin: "https://stark-crag-15310-backend.herokuapp.com/",
+    // origin: "https://mighty-tor-36415-frontend.herokuapp.com/",
     methods: ["GET", "POST"],
   },
 });
