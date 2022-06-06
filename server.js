@@ -36,7 +36,7 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(3001, () => {
+server.listen('https://mighty-tor-36415-frontend.herokuapp.com/', () => {
   console.log("SERVER RUNNING");
 });
 
